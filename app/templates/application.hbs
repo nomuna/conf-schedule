@@ -1,53 +1,12 @@
 <ul class="events">
+  {{#each @model.events as |event|}}
   <Event
-    @title="Opening Keynote"
-    @start="9:30am"
-    @end="10:30am"
-    @speakers={{array "Yehuda Katz" "Jen Weber" "Godfrey Chan"}}
-    @images={{array "yehuda-katz" "jen-weber" "godfrey-chan"}}
+    @title={{event.fields.name}}
+    @start={{event.fields.start_time}}
+    @end={{event.fields.end_time}}
+    @speakers={{event.fields.speakers}}
   />
-
-  <Event
-    @title="FastFlood: The Story of a Massive Memory Leak in FastBoot Land"
-    @start="10:45am"
-    @end="11:15am"
-    @speakers={{array "Sergio Arbeo"}}
-    @images={{array "sergio-arbeo"}}
-  />
-
-  <Event
-    @title="Octane: A Paradigm shift in EmberJS"
-    @start="11:30am"
-    @end="12:00pm"
-    @speakers={{array "Suchita Doshi"}}
-    @images={{array "suchita-doshi"}}
-  />
-
-  <Event
-    @title="Break"
-    @start="12:00pm"
-    @end="1:30pm"
-  />
-
-  <Event
-    @title="Storytime: Georgia's Terrific Colorific Experiment"
-    @start="12:00pm"
-    @end="12:20pm"
-  />
-
-  <Event
-    @title="Welcome Back!"
-    @start="1:25pm"
-    @end="1:30pm"
-  />
-
-  <Event
-    @title="AST: the Secret Weapon to Transform a Codebase"
-    @start="1:30pm"
-    @end="2:00pm"
-    @speakers={{array "Sophia Wang"}}
-    @images={{array "sophia-wang"}}
-  />
+  {{/each}}
 </ul>
 
 {{outlet}}
